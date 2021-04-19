@@ -14,13 +14,13 @@ pipeline {
                 }
             }
         }
-        stage('Delete OCR Image') {
-            steps{
-                script{
-                    sh '${WORKSPACE}/scripts/ocr_img_del.sh'
-                }
-            }
-        }
+        //stage('Delete OCR Image') {
+        //    steps{
+        //        script{
+        //            sh '${WORKSPACE}/scripts/ocr_img_del.sh'
+        //        }
+        //    }
+        //}
         stage('Download Artifacts') {
             steps {
                 script {
