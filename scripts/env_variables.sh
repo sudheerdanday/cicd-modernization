@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-export BRANCH_NAME="master"
+export BRANCH_NAME="main"
 
 #export JAVA_HOME=""
 export JENKINS_HOME="/u01/jenkins"
