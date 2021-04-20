@@ -21,7 +21,7 @@ pipeline {
         //        }
         //    }
         //}
-        stage('Download Artifacts') {
+        /*stage('Download Artifacts') {
             steps {
                 script {
                     def server = Artifactory.server 'Internal-Artifactory'
@@ -67,13 +67,15 @@ pipeline {
                     server.publishBuildInfo buildInfo
                 }
             }
-        }
+        } */
 
         stage('Building mono image') {
             steps{
                 script {
-                    sh 'mv server.xml tomcat-users.xml logging.properties setenv.sh ${WORKSPACE}/dockerfiles/mono'
-                    sh 'mv ${VERSION}/reporting.war  ${WORKSPACE}/dockerfiles/mono'
+                    //sh 'mv server.xml tomcat-users.xml logging.properties setenv.sh ${WORKSPACE}/dockerfiles/mono'
+                    sh 'cp -R /tmp/ofiles/server.xml /tmp/ofiles/tomcat-users.xml /tmp/ofiles/logging.properties /tmp/ofiles/setenv.sh ${WORKSPACE}/dockerfiles/mono'
+                    //sh 'mv ${VERSION}/reporting.war  ${WORKSPACE}/dockerfiles/mono'
+                    sh 'cp -R /tmp/ofiles/${VERSION}/reporting.war  ${WORKSPACE}/dockerfiles/mono'
                     sh 'docker build --network=host -t orbitmono:${VERSION} ${WORKSPACE}/dockerfiles/mono'
                 }
             }
@@ -82,13 +84,17 @@ pipeline {
             steps{
                 script {
                     sh 'unzip -q  ${VERSION}/ORBIT_HOME.zip -d ${WORKSPACE}/dockerfiles/orbit_home_sync'
-                    sh 'mv orbit.properties ${WORKSPACE}/dockerfiles/orbit_home_sync/ORBIT_HOME/conf'
+                    //sh 'mv orbit.properties ${WORKSPACE}/dockerfiles/orbit_home_sync/ORBIT_HOME/conf'
+                    sh 'cp -R /tmp/ofiles/orbit.properties ${WORKSPACE}/dockerfiles/orbit_home_sync/ORBIT_HOME/conf'
                     sh 'mkdir -p ${WORKSPACE}/dockerfiles/orbit_home_sync/ORBIT_HOME/adw_wallet'
-                    sh 'unzip -q Wallet_cicdinternal.zip -d ${WORKSPACE}/dockerfiles/orbit_home_sync/ORBIT_HOME/adw_wallet'
-                    sh 'mv ${WORKSPACE}/licenses/web/ORBITBI_5D_5S_10E_105DAYS.orbitlic dockerfiles/orbit_home_sync/ORBIT_HOME/licenses'
+                    sh 'unzip -q /tmp/ofiles/Wallet_cicdadw.zip -d ${WORKSPACE}/dockerfiles/orbit_home_sync/ORBIT_HOME/adw_wallet'
+                    /*sh 'mv ${WORKSPACE}/licenses/web/ORBITBI_5D_5S_10E_105DAYS.orbitlic dockerfiles/orbit_home_sync/ORBIT_HOME/licenses'
                     sh 'mv ${WORKSPACE}/licenses/scheduler/SCHSVC_BI_5D_5S_10E_87DAYS.orbitlic dockerfiles/orbit_home_sync/ORBIT_HOME/licenses'
-                    sh 'mv ${WORKSPACE}/licenses/publisher/PUBSVC_BI_5D_5S_10E_87DAYS.orbitlic dockerfiles/orbit_home_sync/ORBIT_HOME/licenses'
-                    sh 'docker build --network=host -t orbit_home_sync:${VERSION} ${WORKSPACE}/dockerfiles/orbit_home_sync'
+                    sh 'mv ${WORKSPACE}/licenses/publisher/PUBSVC_BI_5D_5S_10E_87DAYS.orbitlic dockerfiles/orbit_home_sync/ORBIT_HOME/licenses' */
+                    sh 'cp -R /tmp/ofiles/web/ORBITBI_5D_5S_10E_105DAYS.orbitlic dockerfiles/orbit_home_sync/ORBIT_HOME/licenses'
+                    sh 'cp -R /tmp/ofiles/scheduler/SCHSVC_BI_5D_5S_10E_87DAYS.orbitlic dockerfiles/orbit_home_sync/ORBIT_HOME/licenses'
+                    sh 'cp -R /tmp/ofiles/publisher/PUBSVC_BI_5D_5S_10E_87DAYS.orbitlic dockerfiles/orbit_home_sync/ORBIT_HOME/licenses'
+                    sh 'docker build --network=host -t orbit_home_sync:${VERSION} ${WORKSPACE}/dockerfiles/orbit_home_sync' 
                 }
             }
         }
