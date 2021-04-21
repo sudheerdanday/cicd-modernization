@@ -13,9 +13,9 @@ export TERRAFORM_HOME="/usr/local/bin"
 export KUBECONFIG="$HOME/.kube/config"
 export KUBECTL_HOME="/usr/local/bin"
 export ORACLE_HOME="/usr/lib/oracle/18.3/client64"
-export OCI_CLI_HOME="/usr/local/bin/oracle-cli"
+export AWS_CLI_HOME="/usr/local/bin"
 
-export PATH=$PATH:$JENKINS_HOME:$GO_HOME/bin:$HELM_HOME:$MAVEN_HOME/bin:$SENCHA_CMD_7_0_0:$TERRAFORM_HOME:$JAVA_HOME:$KUBECONFIG:$KUBECTL_HOME:$OCI_CLI_HOME/bin
+export PATH=$PATH:$JENKINS_HOME:$GO_HOME/bin:$HELM_HOME:$MAVEN_HOME/bin:$SENCHA_CMD_7_0_0:$TERRAFORM_HOME:$JAVA_HOME:$KUBECONFIG:$KUBECTL_HOME:$AWS_CLI_HOME
 
 # Set environment varibale for ADW wallet file.
 export TNS_ADMIN="/u01/jenkins/adw_wallet"
