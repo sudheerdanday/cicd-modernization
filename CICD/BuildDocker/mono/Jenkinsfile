@@ -83,7 +83,7 @@ pipeline {
         stage('Building orbit_sync image') {
             steps{
                 script {
-                    sh 'unzip -q  ${VERSION}/ORBIT_HOME.zip -d ${WORKSPACE}/dockerfiles/orbit_home_sync'
+                    sh 'unzip -q  /tmp/ofiles/${VERSION}/ORBIT_HOME.zip -d ${WORKSPACE}/dockerfiles/orbit_home_sync'
                     //sh 'mv orbit.properties ${WORKSPACE}/dockerfiles/orbit_home_sync/ORBIT_HOME/conf'
                     sh 'cp -R /tmp/ofiles/orbit.properties ${WORKSPACE}/dockerfiles/orbit_home_sync/ORBIT_HOME/conf'
                     sh 'mkdir -p ${WORKSPACE}/dockerfiles/orbit_home_sync/ORBIT_HOME/adw_wallet'
