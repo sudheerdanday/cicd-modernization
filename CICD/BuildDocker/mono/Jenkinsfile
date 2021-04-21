@@ -103,10 +103,10 @@ pipeline {
             steps{
                 script{
                     //docker.withRegistry('https://bom.ocir.io','OCRlogin') {
-                    sh 'docker login --username AWS --password $(aws ecr get-login-password) $(aws sts get-caller-identity --query Account --output text).dkr.ecr.us-west-2.amazonaws.com'
+                    sh 'docker login --username AWS --password $(/usr/local/bin/aws ecr get-login-password) $(/usr/local/bin/aws sts get-caller-identity --query Account --output text).dkr.ecr.us-west-2.amazonaws.com'
                     sh 'docker tag orbitmono:${VERSION} 860929710773.dkr.ecr.us-west-2.amazonaws.com/newimg/orbit-int-repo/mono:${VERSION}'
                     sh 'docker push 860929710773.dkr.ecr.us-west-2.amazonaws.com/newimg/orbit-int-repo/mono:${VERSION}'
-                    sh 'docker logout --username AWS --password $(aws ecr get-login-password) $(aws sts get-caller-identity --query Account --output text).dkr.ecr.us-west-2.amazonaws.com'
+                    sh 'docker logout --username AWS --password $(/usr/local/bin/aws ecr get-login-password) $(/usr/local/bin/aws sts get-caller-identity --query Account --output text).dkr.ecr.us-west-2.amazonaws.com'
                     
                     //}
                 }
@@ -116,10 +116,10 @@ pipeline {
             steps{
                 script{
                     //docker.withRegistry('https://bom.ocir.io','OCRlogin') {
-                    sh 'docker login --username AWS --password $(aws ecr get-login-password) $(aws sts get-caller-identity --query Account --output text).dkr.ecr.us-west-2.amazonaws.com'
+                    sh 'docker login --username AWS --password $(/usr/local/bin/aws ecr get-login-password) $(/usr/local/bin/aws sts get-caller-identity --query Account --output text).dkr.ecr.us-west-2.amazonaws.com'
                     sh 'docker tag orbit_home_sync:${VERSION} 860929710773.dkr.ecr.us-west-2.amazonaws.com/newimg/orbit-int-repo/orbit_home_sync:${VERSION}'
                     sh 'docker push 860929710773.dkr.ecr.us-west-2.amazonaws.com/newimg/orbit-int-repo/orbit_home_sync:${VERSION}'
-                    sh 'docker logout --username AWS --password $(aws ecr get-login-password) $(aws sts get-caller-identity --query Account --output text).dkr.ecr.us-west-2.amazonaws.com'
+                    sh 'docker logout --username AWS --password $(/usr/local/bin/aws ecr get-login-password) $(/usr/local/bin/aws sts get-caller-identity --query Account --output text).dkr.ecr.us-west-2.amazonaws.com'
                     //}
                 }
             } 
