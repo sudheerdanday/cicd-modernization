@@ -8,8 +8,8 @@ pipeline {
     parameters {
         booleanParam defaultValue: false, description: 'subnet Creation', name: 'NEED_SUBNET'
         string defaultValue: params.INSTANCE_NAME ?: '', description: 'Namespace for each customer', name: 'INSTANCE_NAME', trim: false
-        //choice choices: artifacts(), description: 'List of Artifacts', name: 'VERSION'
-        choice choices: ["Select", "ORBIT9.2.01.1"], description: 'List of Artifacts', name: 'VERSION'
+        choice choices: artifacts(), description: 'List of Artifacts', name: 'VERSION'
+       // choice choices: ["Select", "ORBIT9.2.01.1"], description: 'List of Artifacts', name: 'VERSION'
         choice choices: ['internal', 'external',], description: 'select environment type', name: 'ENV_TYPE'
         choice choices: ['en', 'fr','ko','ja',], description: 'Supported languages for namespace', name: 'LANGUAGE'
     }
