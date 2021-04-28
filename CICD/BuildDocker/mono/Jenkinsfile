@@ -103,7 +103,7 @@ pipeline {
             steps{
                 script{
                     //docker.withRegistry('https://bom.ocir.io','OCRlogin') {
-                    sh 'docker login --username AWS --password $(cat /tmp/key.txt) 860929710773.dkr.ecr.us-west-2.amazonaws.com'
+                    sh 'docker login --username AWS --password $(/usr/local/bin/aws ecr get-login-password) 860929710773.dkr.ecr.us-west-2.amazonaws.com'
                     sh 'docker tag orbitmono:${VERSION} 860929710773.dkr.ecr.us-west-2.amazonaws.com/mono:${VERSION}'
                     sh 'docker push 860929710773.dkr.ecr.us-west-2.amazonaws.com/mono:${VERSION}'
                     sh 'docker logout 860929710773.dkr.ecr.us-west-2.amazonaws.com'
@@ -116,7 +116,7 @@ pipeline {
             steps{
                 script{
                     //docker.withRegistry('https://bom.ocir.io','OCRlogin') {
-                    sh 'docker login --username AWS --password $(cat /tmp/key.txt) 860929710773.dkr.ecr.us-west-2.amazonaws.com'
+                    sh 'docker login --username AWS --password $(/usr/local/bin/aws ecr get-login-password) 860929710773.dkr.ecr.us-west-2.amazonaws.com'
                     sh 'docker tag orbit_home_sync:${VERSION} 860929710773.dkr.ecr.us-west-2.amazonaws.com/home_sync:${VERSION}'
                     sh 'docker push 860929710773.dkr.ecr.us-west-2.amazonaws.com/home_sync:${VERSION}'
                     sh 'docker logout 860929710773.dkr.ecr.us-west-2.amazonaws.com'
