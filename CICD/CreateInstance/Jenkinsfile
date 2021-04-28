@@ -135,7 +135,7 @@ def artifacts () {
           deleteDir()
           checkout scm
           def jfrog_version_list = ["Select",];
-          sh '${WORKSPACE}/scripts/ocr_repos.sh'
+          sh '${WORKSPACE}/scripts/jfrog_repos.sh'
           def list = readFile("${WORKSPACE}/scripts/version.txt").readLines()
           for (item in list) {
               jfrog_version_list.add("$item")
