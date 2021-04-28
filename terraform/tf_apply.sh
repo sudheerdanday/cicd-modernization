@@ -2,12 +2,12 @@
 . ./scripts/env_variables.sh
 cd terraform/tf_environment
 
-terraform get -update
-terraform init
-terraform fmt
-terraform validate
-terraform plan -out=terraform.tfplan
-terraform apply -var "customer_name=${INSTANCE_NAME}" -var "export_path=/${INSTANCE_NAME}" -var "need_subnet=${NEED_SUBNET}" -lock=false -auto-approve
+/usr/local/bin/terraform get -update
+/usr/local/bin/terraform init
+/usr/local/bin/terraform fmt
+/usr/local/bin/terraform validate
+/usr/local/bin/terraform plan -out=terraform.tfplan
+/usr/local/bin/terraform apply -var "customer_name=${INSTANCE_NAME}" -var "export_path=/${INSTANCE_NAME}" -var "need_subnet=${NEED_SUBNET}" -lock=false -auto-approve
 if [[ $? -ne 0 ]]
 then
    exit 1  
