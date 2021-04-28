@@ -1,9 +1,7 @@
-provider "oci" {
-  region           = var.region
-  tenancy_ocid     = var.tenancy_ocid
-  user_ocid        = var.user_ocid
-  fingerprint      = var.fingerprint
-  private_key_path = var.private_key_path
+provider "aws" {
+  region     = "us-west-2"
+  access_key = "AKIA4Q43I3K232JVKIUB"
+  secret_key = "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"
 }
 
 module "fss" {
