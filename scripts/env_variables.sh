@@ -28,7 +28,7 @@ export PATH=$PATH:$ORACLE_HOME/bin:$ORACLE_HOME/lib
 
 export jfrog_username="admin"
 export jfrog_encry_pwd="admin123"
-export jfrog_ipaddress="34.221.230.33"
+export jfrog_ipaddress="34.210.168.138"
 export jfrog_port="8081"
 export sql_username="admin"
 export sql_pwd="HC8894h4hQnbjsRg"
