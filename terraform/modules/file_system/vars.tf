@@ -1,11 +1,11 @@
-variable "compartment_ocid" {}
+# variable "compartment_ocid" {}
 
-variable "vcn_ocid" {}
+# variable "vcn_ocid" {}
 
-variable "availability_domain" {}
+# variable "availability_domain" {}
 
-variable "customer_name" {}
+# variable "customer_name" {}
 
-variable "export_path" {}
+# variable "export_path" {}
 
-variable "mount_target_id" {}
+# variable "mount_target_id" {}
