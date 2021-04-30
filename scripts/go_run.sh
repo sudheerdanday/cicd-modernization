@@ -1,7 +1,7 @@
 #!/bin/bash
 . ./scripts/env_variables.sh
-username=${INSTANCE_NAME}
-password="${username:0:3}Orbit#1234"
+username="foo"
+password="foobarbaz"
 lower_version=$(echo "${VERSION}" | tr '[:upper:]' '[:lower:]')
 
 
@@ -13,7 +13,7 @@ fi
 
 
 cd ${WORKSPACE}/template-generator
-go run go-cli-template.go --namespace=${INSTANCE_NAME} --language=${LANGUAGE} --user=$username --pwd=$password --orbit_home_sync_image=${VERSION} --deployment_image_name=$lower_version --mount_target_ip=$mount_target_ip --adw_db_level=$sql_adw_level template.yaml > ${WORKSPACE}/helm/environments/${ENV_TYPE}/${INSTANCE_NAME}.yaml
+go run go-cli-template.go --namespace=${INSTANCE_NAME} --language=${LANGUAGE} --user=$username --pwd=$password --orbit_home_sync_image=${VERSION} --deployment_image_name=$lower_version template.yaml > ${WORKSPACE}/helm/environments/${ENV_TYPE}/${INSTANCE_NAME}.yaml
 if [[ $? -ne 0 ]]
 then
    exit 1  
