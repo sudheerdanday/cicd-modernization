@@ -90,7 +90,7 @@ pipeline {
                 }
             }
         }
-        /*stage('go deployment') {
+        stage('go deployment') {
             when {
                 expression {
                     !skipRemainingStages
@@ -113,7 +113,7 @@ pipeline {
                 }
             }
         }
-    }*/
+    }
     post {
         success {
             script {
