@@ -18,7 +18,7 @@
 # #   description = "The OCID VCN"
 # # }
 
-# # variable "customer_name" {}
+variable "customer_name" {}
 
 # # variable "export_path" {}
 
