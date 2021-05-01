@@ -31,7 +31,7 @@ export jfrog_encry_pwd="admin123"
 export jfrog_ipaddress="34.217.116.121"
 export jfrog_port="8081"
 export sql_username="admin"
-export sql_pwd="HC8894h4hQnbjsRg"
+export sql_pwd="admin123"
 export sql_adw_level="cicdinternal_medium"
 
 export mount_target_ip=172.24.2.4
