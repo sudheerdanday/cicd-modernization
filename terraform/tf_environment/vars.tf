@@ -20,7 +20,7 @@
 
 variable "customer_name" {}
 
-# # variable "export_path" {}
+variable "export_path" {}
 
 # # variable "availability_domain" {}
 
