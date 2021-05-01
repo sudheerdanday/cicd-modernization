@@ -13,7 +13,7 @@
 # then
 #    exit 1  
 # fi
-sqlplus '$sql_username/$sql_pwd@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=database-2.cx0g3ko3kktr.us-west-2.rds.amazonaws.com)(PORT=1521))(CONNECT_DATA=(SID=DATABASE)))' << !
+sqlplus 'admin/admin123@(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=database-2.cx0g3ko3kktr.us-west-2.rds.amazonaws.com)(PORT=1521))(CONNECT_DATA=(SID=DATABASE)))' << !
   whenever SQLERROR exit SQL.SQLCODE;
   @${WORKSPACE}/scripts/create_user.sql $username $password
 !
