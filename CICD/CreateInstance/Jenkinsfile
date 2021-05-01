@@ -68,7 +68,7 @@ pipeline {
                 }
             }
         }
-        /*stage('user schema') {
+        stage('user schema') {
             when {
                 expression {
                     !skipRemainingStages
@@ -89,8 +89,8 @@ pipeline {
                     }
                 }
             }
-        }*/
-        stage('go deployment') {
+        }
+        /*stage('go deployment') {
             when {
                 expression {
                     !skipRemainingStages
@@ -113,7 +113,7 @@ pipeline {
                 }
             }
         }
-    }
+    }*/
     post {
         success {
             script {
