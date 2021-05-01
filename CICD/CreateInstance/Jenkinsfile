@@ -46,7 +46,7 @@ pipeline {
                 }
             }
         }
-        stage('file system') {
+        /*stage('file system') {
             when {
                 expression {
                     !skipRemainingStages
@@ -67,7 +67,7 @@ pipeline {
                     }
                 }
             }
-        }
+        }*/
         stage('user schema') {
             when {
                 expression {
