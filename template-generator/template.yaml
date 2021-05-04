@@ -13,7 +13,7 @@ cluster-configs:
         scheduler-svc-name : {{.namespace}}-scheduler-svc
         publisher-deployment-name : {{.namespace}}-publisher
         publisher-svc-name : {{.namespace}}-publisher-svc
-        orbit_home_sync_image : bom.ocir.io/idgrosnf0lwv/orbit-int-repo/orbit_home_sync:{{.orbit_home_sync_image}}
+        orbit_home_sync_image : 860929710773.dkr.ecr.us-west-2.amazonaws.com/home_sync:{{.orbit_home_sync_image}}
         pv-name: {{.namespace}}-volume
         pvc-name: {{.namespace}}-volume-claim
         fss-path: /{{.namespace}}
